@@ -10,12 +10,11 @@ def permutations(L):
   return list(itertools.permutations(L))
 
 def get_box_number(row, col):
-  '''Return what box (row,col) is in. Boxes numbers 0 to 8 from left to right, top to bottom'''
+  '''Return what box (row,col) is in. Boxes number 0 to 8 from left to right, top to bottom'''
 
-  quadrants = {0:range(3),1:range(3,6),2:range(6,9)}
+  quadrants = {0:range(3), 1:range(3,6), 2:range(6,9)}
   for (i,q) in quadrants.items():
     if row in q: row_quadrant = i
-  for (i,q) in quadrants.items():
     if col in q: col_quadrant = i
   return 3 * row_quadrant + col_quadrant
 
@@ -23,8 +22,8 @@ def get_cell_values_for_box(box, board):
   '''Return the values of the cells in box'''
 
   cells = []
-  for row in range(9):
-    for col in range(9):
+  for row in range(SQUARE_SIZE):
+    for col in range(SQUARE_SIZE):
       if get_box_number(row,col) == box:
         cells.append(board[row][col])
   return cells
@@ -34,8 +33,8 @@ def get_cells_for_box(box):
   is a dictionary of the form {'row':int, 'col':int}'''
 
   cells = []
-  for row in range(9):
-    for col in range(9):
+  for row in range(SQUARE_SIZE):
+    for col in range(SQUARE_SIZE):
       if get_box_number(row,col) == box:
         cells.append({'row':row,'col':col})
   return cells
