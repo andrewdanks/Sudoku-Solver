@@ -63,9 +63,7 @@ def write_board_variables(variables):
     human_board.append([])
     for col in range(SQUARE_SIZE):
       V = variables[row][col]
-      domain = V.cur_domain()
-      domain.sort()
-      human_board[row].append(domain)
+      human_board[row].append(V.cur_domain())
   return human_board
 
 
