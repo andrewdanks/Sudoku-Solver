@@ -92,7 +92,7 @@ def enforce_gac(constraint_list):
             # Push all constraints C' such that V is in scope of C' and C'
             # is not in GACQueue
             for C2 in constraint_list:
-              if C2 not in GACQueue and V in C2.scope:
+              if V in C2.scope and C2 not in GACQueue:
                 GACQueue.append(C2)
   return True
 
